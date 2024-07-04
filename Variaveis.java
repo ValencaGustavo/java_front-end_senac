@@ -13,10 +13,10 @@ public class Variaveis {
         boolean varBoolean = true; // Declaração de variável varBoolean, do tipo Boolean, verifica se é verdadeiro ou falso
         System.out.println("Variável do tipo Boolean ()");
     
-        byte varByte = 1;
+        byte varByte = 1; // Declaração de variável varByte, do tipo byte, armazena valores numéricos binários
     
-        char varChar = 'r';
+        char varChar = 'r';  // Declaração de variável varChar, do tipo char, armazena um caractere "r"
     
-        float varFloat = 19.99f;
+        float varFloat = 19.99f; // Declaração de variável varFloat, do tipo float, com valores númericos float
     }
 }
