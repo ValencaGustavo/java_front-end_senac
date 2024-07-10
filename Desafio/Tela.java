@@ -11,10 +11,10 @@ public class Tela extends JPanel
    {
       super.paintComponent(g); 
  
-      g.setColor(Color.BLUE);
-      g.fillRect(20, 40, 100, 50);
       g.setFont(new Font("Arial", Font.ITALIC, 22));
       g.drawString("Senac", 20, 30);
+      g.setColor(Color.BLUE);
+      g.fillRect(20, 40, 100, 50);
    } 
 }
 
