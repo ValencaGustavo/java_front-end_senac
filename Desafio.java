@@ -15,22 +15,20 @@ public class Desafio extends JFrame
    private final ButtonGroup colorButtonGroup; 
    private int style; 
 
-   // no-argument constructor set up GUI
    public Desafio()
    {
       super("");     
 
-      JMenu fileMenu = new JMenu("Arquivo"); // create file menu
-      fileMenu.setMnemonic('F'); // set mnemonic to F
+      JMenu fileMenu = new JMenu("Arquivo"); 
+      fileMenu.setMnemonic('F'); 
  
-      // create About... menu item
       JMenuItem aboutItem = new JMenuItem("Sobre");
-      aboutItem.setMnemonic('A'); // set mnemonic to A
-      fileMenu.add(aboutItem); // add about item to file menu
+      aboutItem.setMnemonic('A'); 
+      fileMenu.add(aboutItem); 
       aboutItem.addActionListener(
-         new ActionListener() // anonymous inner class
+         new ActionListener() 
          {  
-            // display message dialog when user selects About...
+
             @Override
             public void actionPerformed(ActionEvent event)
             {
@@ -41,87 +39,83 @@ public class Desafio extends JFrame
          } 
       ); 
       
-      JMenuItem exitItem = new JMenuItem("Sair"); // create exit item
-      exitItem.setMnemonic('x'); // set mnemonic to x
-      fileMenu.add(exitItem); // add exit item to file menu
+      JMenuItem exitItem = new JMenuItem("Sair");
+      exitItem.setMnemonic('x'); 
+      fileMenu.add(exitItem);
       exitItem.addActionListener(
-         new ActionListener() // anonymous inner class
+         new ActionListener() 
          {  
-            // terminate application when user clicks exitItem
+
             @Override
             public void actionPerformed(ActionEvent event)
             {
-               System.exit(0); // exit application
+               System.exit(0);
             } 
          }
       ); 
 
 
-      JMenuBar bar = new JMenuBar(); // create menu bar
-      setJMenuBar(bar); // add menu bar to application
-      bar.add(fileMenu); // add file menu to menu bar
+      JMenuBar bar = new JMenuBar(); 
+      setJMenuBar(bar); 
+      bar.add(fileMenu); 
 
-      JMenu formatMenu = new JMenu("Editar"); // create format menu
-      formatMenu.setMnemonic('r'); // set mnemonic to r
+      JMenu formatMenu = new JMenu("Editar"); 
+      formatMenu.setMnemonic('r');
 
-      // array listing string colors
       String[] colors = {"Preto", "Azul", "Vermelho", "Verde"};
 
-      JMenu colorMenu = new JMenu("Cores"); // create color menu
-      colorMenu.setMnemonic('C'); // set mnemonic to C
+      JMenu colorMenu = new JMenu("Cores"); 
+      colorMenu.setMnemonic('C'); 
 
-      // create radio button menu items for colors
+
       colorItems = new JRadioButtonMenuItem[colors.length];
-      colorButtonGroup = new ButtonGroup(); // manages colors
-      ItemHandler itemHandler = new ItemHandler(); // handler for colors
+      colorButtonGroup = new ButtonGroup(); 
+      ItemHandler itemHandler = new ItemHandler(); 
 
-      // create color radio button menu items
+
       for (int count = 0; count < colors.length; count++) 
       {
          colorItems[count] = 
-            new JRadioButtonMenuItem(colors[count]); // create item
-         colorMenu.add(colorItems[count]); // add item to color menu
-         colorButtonGroup.add(colorItems[count]); // add to group
+            new JRadioButtonMenuItem(colors[count]); 
+         colorMenu.add(colorItems[count]);
+         colorButtonGroup.add(colorItems[count]); 
          colorItems[count].addActionListener(itemHandler);
       }
 
-      colorItems[0].setSelected(true); // select first Color item
+      colorItems[0].setSelected(true); 
 
-      formatMenu.add(colorMenu); // add color menu to format menu
-      formatMenu.addSeparator(); // add separator in menu
+      formatMenu.add(colorMenu);
+      formatMenu.addSeparator(); 
 
-      // array listing font names
       String[] fontNames = {"Serif", "Monospaced", "SansSerif"};
-      JMenu fontMenu = new JMenu("Fontes"); // create font menu
-      fontMenu.setMnemonic('n'); // set mnemonic to n
+      JMenu fontMenu = new JMenu("Fontes"); 
+      fontMenu.setMnemonic('n'); 
 
-      // create radio button menu items for font names
       fonts = new JRadioButtonMenuItem[fontNames.length];
-      fontButtonGroup = new ButtonGroup(); // manages font names
+      fontButtonGroup = new ButtonGroup(); 
 
-      // create Font radio button menu items
       for (int count = 0; count < fonts.length; count++) 
       {
          fonts[count] = new JRadioButtonMenuItem(fontNames[count]);
-         fontMenu.add(fonts[count]); // add font to font menu
-         fontButtonGroup.add(fonts[count]); // add to button group
-         fonts[count].addActionListener(itemHandler); // add handler
+         fontMenu.add(fonts[count]);
+         fontButtonGroup.add(fonts[count]); 
+         fonts[count].addActionListener(itemHandler); 
       } 
 
-      fonts[0].setSelected(true); // select first Font menu item
-      fontMenu.addSeparator(); // add separator bar to font menu
+      fonts[0].setSelected(true);
+      fontMenu.addSeparator();
 
-      String[] styleNames = {"Bold", "Italic"}; // names of styles
+      String[] styleNames = {"Bold", "Italic"}; 
       styleItems = new JCheckBoxMenuItem[styleNames.length];
-      StyleHandler styleHandler = new StyleHandler(); // style handler
+      StyleHandler styleHandler = new StyleHandler(); 
 
-      // create style checkbox menu items
+
       for (int count = 0; count < styleNames.length; count++) 
       {
          styleItems[count] = 
-            new JCheckBoxMenuItem(styleNames[count]); // for style
-         fontMenu.add(styleItems[count]); // add to font menu
-         styleItems[count].addItemListener(styleHandler); // handler
+            new JCheckBoxMenuItem(styleNames[count]); 
+         fontMenu.add(styleItems[count]); 
+         styleItems[count].addItemListener(styleHandler); 
       }
 
       formatMenu.add(fontMenu);
@@ -160,7 +154,7 @@ public class Desafio extends JFrame
             }
          }
 
-         repaint(); // redraw application
+         repaint();
       } 
    } 
 
