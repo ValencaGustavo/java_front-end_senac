@@ -83,7 +83,7 @@ public class FibonacciNumbers extends JFrame
          {
             public void actionPerformed(ActionEvent event)
             {
-
+              if (count>=1) {
                long temp = n2 - n1;
                n1 = n2;
                n2 = temp;
@@ -94,6 +94,7 @@ public class FibonacciNumbers extends JFrame
                nFibonacciJLabel.setText(String.valueOf(n2));
             }
          } 
+        }
       );
       eventThreadJPanel.add(previousNumberJButton);
 
