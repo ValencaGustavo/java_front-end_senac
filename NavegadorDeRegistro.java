@@ -138,4 +138,22 @@ public class NavegadorDeRegistro {
         }
         return retorno;
     }
+
+    public static String updateCadastro(String db, String tbl, String nome, String email, String senha, String id) {
+        String retorno = "Nada aconteceu ainda...";
+        try {
+            Connection conexao = MySQLConnector.conectar();
+            String strSqlUpdateRegistro = "update `" + db + "`.`" + tbl + "` set `nome` = '" + nome + "', `email` = '" + email + "', `senha` = '" + senha + "' where `id` = " + id + ";";
+            Statement stmSqlUpdateRegistro = conexao.createStatement();
+            stmSqlUpdateRegistro.addBatch(strSqlUpdateRegistro);
+            stmSqlUpdateRegistro.executeBatch();
+            stmSqlUpdateRegistro.close();
+                retorno = "Registro atualizado com sucesso!";
+            
+        } catch (Exception e) {
+            retorno = "Ops! Ocorreu um erro: " + e;
+            System.out.println(retorno);
+        }
+        return retorno;
+    }
 }

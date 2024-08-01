@@ -14,6 +14,7 @@ public class EditorCadastro extends JFrame {
     private final JButton lastJButton = new JButton(">>");
     private final JButton createRegistroJButton = new JButton("Criar Registro");
     private final JButton deleteRegistroJButton = new JButton("Deletar Registro");
+    private final JButton updateRegistroJButton = new JButton("Atualizar Registro");
     private final JLabel idJLabel = new JLabel("Id:");
     private final JLabel nomeJLabel = new JLabel("Digite um nome:");
     private final JLabel emailJLabel = new JLabel("Digite um email:");
@@ -181,6 +182,32 @@ public class EditorCadastro extends JFrame {
         }
            );
         
+           updateRegistroJButton.addActionListener(
+            new ActionListener()
+            {
+               public void actionPerformed(ActionEvent event)
+               {
+                
+                String nome;
+                String email;
+                String senha;
+                String id;
+                try {
+                    nome = nomeJTextField.getText();
+                    email = emailJTextField.getText();
+                    senha = senhaJTextField.getText();
+                    id = idJTextField.getText();
+                    NavegadorDeRegistro.updateCadastro("db_teste", "tbl_teste", nome, email, senha, id);
+    
+                } catch(NumberFormatException ex) {
+                    System.out.println("Digite uma coisa!");
+                    return;
+                }
+            }
+            
+        }
+           );
+
             add(idJLabel);
             add(idJTextField);
             add(updateJButton);
@@ -208,6 +235,7 @@ public class EditorCadastro extends JFrame {
             add(lastJButton);
             add(createRegistroJButton);
             add(deleteRegistroJButton);
+            add(updateRegistroJButton);
 
             add(notificacaoJLabel);
             
